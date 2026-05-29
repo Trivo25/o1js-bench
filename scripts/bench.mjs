@@ -1,10 +1,31 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 
+function getArg(name, fallback) {
+  const idx = process.argv.indexOf(name);
+  return idx === -1 ? fallback : process.argv[idx + 1];
+}
+
+const verbose = process.argv.includes('--verbose');
+const iterations = Number(getArg('--iterations', '3'));
+
 const tools = [
-  { name: 'o1js', command: ['npm', '--prefix', 'o1js', 'run', 'bench', '--', '--json'] },
-  { name: 'jolt', command: ['cargo', 'run', '--release', '-p', 'jolt-ecdsa-bench', '--', '--json', '--iterations', '3'] },
-  { name: 'risc0', command: ['cargo', 'run', '--release', '--manifest-path', 'risc0/host/Cargo.toml', '--', '--json', '--iterations', '3'] }
+  {
+    name: 'o1js',
+    command: [
+      'npm', '--prefix', 'o1js', 'run', 'bench', '--',
+      '--iterations', String(iterations),
+      ...(verbose ? [] : ['--json'])
+    ]
+  },
+  {
+    name: 'jolt',
+    command: [
+      'cargo', 'run', '--release', '-p', 'jolt-ecdsa-bench', '--',
+      '--iterations', String(iterations),
+      ...(verbose ? [] : ['--json'])
+    ]
+  }
 ];
 
 function extractJson(stdout, name) {
@@ -34,7 +55,7 @@ for (const tool of tools) {
   results.push(extractJson(run.stdout, tool.name));
 }
 
-const report = { startedAt, iterations: 3, fixture: 'shared/fixtures/ecdsa_secp256k1.json', results };
+const report = { startedAt, iterations, fixture: 'shared/fixtures/ecdsa_secp256k1.json', results };
 mkdirSync('results', { recursive: true });
 writeFileSync('results/latest.json', `${JSON.stringify(report, null, 2)}\n`);
 const rows = [
