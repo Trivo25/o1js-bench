@@ -1,0 +1,37 @@
+{
+  "startedAt": "2026-05-29T14:19:46.177Z",
+  "iterations": 3,
+  "fixture": "shared/fixtures/ecdsa_secp256k1.json",
+  "results": [
+    {
+      "tool": "o1js",
+      "backend": "native",
+      "dependency": "o1js@2.15.0",
+      "operation": "prove one ZkProgram proof verifying three secp256k1 ECDSA signed hashes",
+      "iterations": 3,
+      "samplesMs": [
+        14002.313834,
+        15297.949458000003,
+        13607.218125
+      ],
+      "minMs": 13607.218125,
+      "medianMs": 14002.313834,
+      "maxMs": 15297.949458000003,
+      "verificationKeyHash": "28668593025944167818150191686915867318989365165463693046444890344811032103512"
+    },
+    {
+      "dependency": "a16z/jolt@ffafae83c858cd2a03b235ccb0913e5a4798d29e",
+      "iterations": 3,
+      "maxMs": 6568.455084,
+      "medianMs": 6476.26825,
+      "minMs": 6259.976,
+      "operation": "prove one Jolt proof verifying three secp256k1 ECDSA signed hashes",
+      "samplesMs": [
+        6476.26825,
+        6568.455084,
+        6259.976
+      ],
+      "tool": "jolt"
+    }
+  ]
+}
