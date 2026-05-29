@@ -1,0 +1,15 @@
+[package]
+name = "risc0-ecdsa-guest"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hex.workspace = true
+k256.workspace = true
+risc0-zkvm = { version = "2.3.1", default-features = false, features = ["std"] }
+serde.workspace = true
+serde_json.workspace = true
+
+[[bin]]
+name = "ecdsa_guest"
+path = "src/main.rs"

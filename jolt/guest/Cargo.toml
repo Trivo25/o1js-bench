@@ -1,0 +1,15 @@
+[package]
+name = "jolt-ecdsa-bench-guest"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+guest = []
+
+[dependencies]
+jolt = { package = "jolt-sdk", git = "https://github.com/a16z/jolt.git", rev = "ffafae83c858cd2a03b235ccb0913e5a4798d29e" }
+jolt-inlines-secp256k1 = { git = "https://github.com/a16z/jolt.git", rev = "ffafae83c858cd2a03b235ccb0913e5a4798d29e" }
+
+[[bin]]
+name = "jolt-ecdsa-bench-guest"
+path = "src/lib.rs"

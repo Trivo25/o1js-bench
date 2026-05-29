@@ -1,0 +1,51 @@
+{
+  "name": "three-secp256k1-ecdsa-prehashed",
+  "description": "Three secp256k1 ECDSA signatures over fixed 32-byte digests. No message hashing is part of the benchmark.",
+  "digestEncoding": "32-byte big-endian scalar reduced by each verifier as normal ECDSA z input",
+  "signatureEncoding": "r/s 32-byte big-endian scalars",
+  "publicKeyEncoding": "SEC1 uncompressed public key plus x/y coordinates",
+  "vectors": [
+    {
+      "name": "case-0",
+      "curve": "secp256k1",
+      "digest": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "publicKey": {
+        "uncompressed": "0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8",
+        "x": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+        "y": "483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"
+      },
+      "signature": {
+        "r": "a951b0cf98bd51c614c802a65a418fa42482dc5c45c9394e39c0d98773c51cd5",
+        "s": "30104fdc36d91582b5757e1de73d982e803cc14d75e82c65daf924e38d27d834"
+      }
+    },
+    {
+      "name": "case-1",
+      "curve": "secp256k1",
+      "digest": "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f",
+      "publicKey": {
+        "uncompressed": "044f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa385b6b1b8ead809ca67454d9683fcf2ba03456d6fe2c4abe2b07f0fbdbb2f1c1",
+        "x": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+        "y": "385b6b1b8ead809ca67454d9683fcf2ba03456d6fe2c4abe2b07f0fbdbb2f1c1"
+      },
+      "signature": {
+        "r": "5f76a200b6418fb7669a9695d1d63e2d60ada40317a25e8cdc994010bc9ee6b7",
+        "s": "4827aceec68bfc899294962fe0ef65ac3dffa7ae3cdf2063daff7bde9acb79ac"
+      }
+    },
+    {
+      "name": "case-2",
+      "curve": "secp256k1",
+      "digest": "404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f",
+      "publicKey": {
+        "uncompressed": "04466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f276728176c3c6431f8eeda4538dc37c865e2784f3a9e77d044f33e407797e1278a",
+        "x": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+        "y": "6728176c3c6431f8eeda4538dc37c865e2784f3a9e77d044f33e407797e1278a"
+      },
+      "signature": {
+        "r": "80691d649f1865e1861fe13002229888e2bcfe1cc4ce17b908501031d3848648",
+        "s": "3f67eda241a4c5d7d8d01f62236322cdb3cbbd3e22495f603408b8df2752a12d"
+      }
+    }
+  ]
+}

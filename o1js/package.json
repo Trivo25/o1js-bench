@@ -1,0 +1,12 @@
+{
+  "name": "o1js-ecdsa-bench",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "node bench.mjs",
+    "smoke": "node bench.mjs --iterations 1 --json"
+  },
+  "dependencies": {
+    "o1js": "2.15.0"
+  }
+}

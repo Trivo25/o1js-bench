@@ -1,0 +1,17 @@
+{
+  "name": "o1js-bench",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fixtures:generate": "node scripts/generate-fixtures.mjs",
+    "fixtures:validate": "node scripts/validate-fixtures.mjs",
+    "bench": "node scripts/bench.mjs",
+    "bench:o1js": "npm --prefix o1js run bench",
+    "bench:jolt": "cargo run --release -p jolt-ecdsa-bench --",
+    "bench:risc0": "cargo run --release --manifest-path risc0/host/Cargo.toml --",
+    "smoke:risc0:execute": "cargo run --release --manifest-path risc0/host/Cargo.toml -- --execute-only --json --iterations 1"
+  },
+  "devDependencies": {
+    "@noble/curves": "2.2.0"
+  }
+}
